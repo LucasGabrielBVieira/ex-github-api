@@ -1,0 +1,19 @@
+.main-initial-page {
+    margin-top: 27px;
+}
+.main-initial-page h2 {
+    font-size: 48px;
+}
+
+.main-initial-page h3 {
+    font-size: 24px;
+    color: var(--color-font-quaternary);
+}
+
+.button-container {
+    margin-top: 27px;
+}
+
+.link-button {
+    text-decoration: none;
+}
