@@ -6,6 +6,7 @@ import PerfilSearch from "../../../components/PerfilSearch/index.tsx";
 function SearchPage() {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [perfil, setPerfil] = useState<any>();
+  const [textError, setTextError] = useState<string>();
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   function handleSubmit(event: any) {
@@ -17,6 +18,8 @@ function SearchPage() {
       })
       .catch((error) => {
         console.log(error);
+        setPerfil(undefined);
+        setTextError("Erro ao buscar Usuário");
       });
   }
 
@@ -24,10 +27,15 @@ function SearchPage() {
     <main className="container">
       <section>
         <div className="form-container">
-          <h1>Encontre um perfil no Github</h1>
+          <h1 className="title">Encontre um perfil no Github</h1>
           <form className="form-search" onSubmit={handleSubmit}>
             <label htmlFor="perfil">Perfil</label>
-            <input type="text" name="perfil" id="perfil" placeholder="Usuário Github"/>
+            <input
+              type="text"
+              name="perfil"
+              id="perfil"
+              placeholder="Usuário Github"
+            />
 
             <button type="submit" className="button">
               Encontrar
@@ -35,14 +43,18 @@ function SearchPage() {
           </form>
         </div>
         <div>
-          {perfil && (
+          {perfil ? (
             <div className="perfil-container">
-              <PerfilSearch avatar_url={perfil.data.avatar_url}
-              followers={perfil.data.followers}
-              location={perfil.data.location}
-              name={perfil.data.name}
-              url={perfil.data.url}/>
+              <PerfilSearch
+                avatar_url={perfil.data.avatar_url}
+                followers={perfil.data.followers}
+                location={perfil.data.location}
+                name={perfil.data.name}
+                url={perfil.data.url}
+              />
             </div>
+          ) : (
+            <h1 className="title mt-64">{textError}</h1>
           )}
         </div>
       </section>

@@ -10,7 +10,7 @@
     border-radius: 16px;
 }   
 
-.form-container h1 {
+.title {
     color: var(--color-font-secondary);
     font-size: 38px;
     font-weight: 500;
@@ -48,6 +48,7 @@
 
 .form-search button {
     border: none;
+    cursor: pointer;
 }
 
 .perfil-container {
@@ -59,4 +60,8 @@
     background-color: var(--color-bg-quartenary);
     padding: 0 38px;
     border-radius: 8px;
+}
+
+.mt-64 {
+    margin-top: 64px;
 }

@@ -1,11 +1,12 @@
 import { Outlet } from "react-router-dom";
 import "./style.css";
+import { Link } from "react-router-dom";
 
 function Home() {
   return (
     <>
       <header className="header-home">
-        <h1>Github API</h1>
+        <Link to={'/'}>Github API</Link>
       </header>
       <Outlet />
     </>
